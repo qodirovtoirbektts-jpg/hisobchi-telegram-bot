@@ -23,6 +23,12 @@ async def main() -> None:
     logger.info("Initializing database...")
     await init_db()
 
+    if not settings.BOT_TOKEN:
+        logger.error(
+            "XATOLIK: BOT_TOKEN topilmadi! Iltimos, Render.com da Environment Variables bo'limiga BOT_TOKEN ni kiriting."
+        )
+        return
+
     bot = Bot(
         token=settings.BOT_TOKEN,
         default=DefaultBotProperties(parse_mode=ParseMode.HTML)
