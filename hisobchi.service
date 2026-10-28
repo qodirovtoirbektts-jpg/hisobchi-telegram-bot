@@ -1,0 +1,15 @@
+[Unit]
+Description=Hisobchi Telegram Bot
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/var/www/hisobchi
+ExecStart=/var/www/hisobchi/.venv/bin/python run.py
+Restart=always
+RestartSec=5
+EnvironmentFile=/var/www/hisobchi/.env
+
+[Install]
+WantedBy=multi-user.target
